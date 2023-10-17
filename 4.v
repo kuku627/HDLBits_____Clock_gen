@@ -6,5 +6,4 @@ module top_module(
   assign x=b;
   assign y=b;
   assign z=c;
-
 endmodule
