@@ -5,7 +5,7 @@ module top_module (
     output [3:0] q);
 
     always @(posedge clk) begin
-        if(reset|((q>=d'9)&slowena))
+        if(reset|((q>=4'd9)&slowena))
             q<=0;
         else
             if(slowena)
