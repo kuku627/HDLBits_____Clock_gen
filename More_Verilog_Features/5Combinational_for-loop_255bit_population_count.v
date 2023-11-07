@@ -4,10 +4,10 @@ module top_module(
 
 
 );
-integer i;
+    integer i;
     always @(*) begin
         out=0;
-        for(i=0;i<255;i=i+1) begin
+        for(i=0;i<$bits(in);i=i+1) begin
             if(in[i])
                 out=out+in[i];
             else

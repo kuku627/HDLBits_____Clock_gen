@@ -8,7 +8,7 @@ module top_module(
         if(reset|(q==4'd15))
             q<=0;
         else
-            q<=q=q+1;
+            q<=q+1;
 
 
 

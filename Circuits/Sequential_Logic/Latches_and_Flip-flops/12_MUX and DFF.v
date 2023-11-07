@@ -6,15 +6,12 @@ module top_module(
 );
     
     always @(posedge clk) begin
-        Q<=L?R:E?w:Q;                
-
-            
-
+        Q<=(L) ? R:
+           (E) ? w:Q;                
     end
 
 
 endmodule
-
 
 module top_module (
     input clk,
@@ -31,6 +28,5 @@ module top_module (
         endcase
         
     end
-    
 
 endmodule
