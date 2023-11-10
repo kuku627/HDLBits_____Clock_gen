@@ -11,23 +11,15 @@ module top_module(
 
     always @(posedge clk or posedge areset) begin
         if(areset) begin
+            q<=0;          
+        end else if(load)begin
             q<=data;
-        
-        else 
-            q<=0;
-
+        end else if(ena) begin
+            q<={1'b0,q[3:1]};
         end
 
 
-        if(ena) begin
-            q<={q[2:0],q[3]};
-        end
 
-
-        
-        if(load) begin
-            q<=data;
-        end
     
         
         

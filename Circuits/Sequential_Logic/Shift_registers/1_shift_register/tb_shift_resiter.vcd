@@ -1,0 +1,123 @@
+$date
+	Fri Nov 10 15:21:28 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_shift_resister $end
+$var wire 4 ! q [3:0] $end
+$var reg 1 " areset $end
+$var reg 1 # clk $end
+$var reg 4 $ data [3:0] $end
+$var reg 1 % ena $end
+$var reg 1 & load $end
+$scope module DUT $end
+$var wire 1 " areset $end
+$var wire 1 # clk $end
+$var wire 4 ' data [3:0] $end
+$var wire 1 % ena $end
+$var wire 1 & load $end
+$var reg 4 ( q [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 (
+b1010 '
+x&
+0%
+b1010 $
+0#
+1"
+b0 !
+$end
+#5
+1#
+#10
+0"
+0#
+#15
+1#
+#20
+1&
+0#
+#25
+b1010 !
+b1010 (
+1#
+#30
+0#
+#35
+1#
+#40
+1%
+0#
+#45
+1#
+#50
+0#
+#55
+1#
+#60
+0#
+#65
+1#
+#70
+0#
+#75
+1#
+#80
+0&
+0#
+#85
+b101 !
+b101 (
+1#
+#90
+0#
+#95
+b10 !
+b10 (
+1#
+#100
+0#
+#105
+b1 !
+b1 (
+1#
+#110
+0#
+#115
+b0 !
+b0 (
+1#
+#120
+0#
+#125
+1#
+#130
+0#
+#135
+1#
+#140
+0#
+#145
+1#
+#150
+0#
+#155
+1#
+#160
+0#
+#165
+1#
+#170
+0#
+#175
+1#
+#180
+0#
