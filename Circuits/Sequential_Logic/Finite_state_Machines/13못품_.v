@@ -13,19 +13,30 @@ module top_module(
 
 
 
-
+    reg [4:0] cnt;
     reg                                [2:0]curr_state,next_state;
+    wire cnt_en;
+    wire oops  ;
+    assign cnt_en=(curr_state==FALL_L)||(curr_state==FALL_R);
+    assign oops  =(cnt>=5'd20);
+
+
     parameter   LEFT    = 0,
                 DIG_L   = 1,
                 FALL_L  = 2,
                 RIGHT   = 3,
                 DIG_R   = 4,
-                FALL_R  = 5;
-               
+                FALL_R  = 5,
+                SPLAT   = 6;
     always@(posedge clk or posedge areset) begin
         if(areset)  curr_state<=      LEFT;
         else        curr_state<=next_state;
-
+    end
+    
+    always@(posedge clk or posedge areset) begin
+        if(areset)      cnt<=5'b0    ;
+        else if(cnt_en) cnt<=cnt+1'b1;
+        else            cnt<=5'b0    ;
     end
 
     always @(*) begin
@@ -40,7 +51,8 @@ module top_module(
                     else if       (dig)  next_state =   DIG_L;
                     else                 next_state =   DIG_L;
 
-            FALL_L: if        (!ground)  next_state =  FALL_L;
+            FALL_L: if        (!ground)  next_state = oops? SPLAT: FALL_L;
+
                     else                 next_state =    LEFT;
                                         
             RIGHT : if        (!ground)  next_state =  FALL_R;
@@ -50,14 +62,16 @@ module top_module(
 
 
 
-            FALL_R: if        (!ground)  next_state =  FALL_R;
+            FALL_R: if        (!ground)  next_state = oops? SPLAT: FALL_R;
                     else                 next_state =   RIGHT;
+
             
 
             DIG_R:  if        (!ground)  next_state =  FALL_R;
                     else if       (dig)  next_state =   DIG_R;
                     else                 next_state =   DIG_R;
        
+            SPLAT:                       next_state =   SPLAT;
         endcase
 
 
@@ -65,7 +79,7 @@ module top_module(
 
     assign  walk_left  = (curr_state== LEFT);
     assign walk_right  = (curr_state==RIGHT);
-    assign       aaah  = (curr_state==FALL_L)|(curr_state==FALL_R);
-    assign    digging  =(curr_state == DIG_L)|(curr_state== DIG_R);
+    assign       aaah  = (curr_state==FALL_L)||(curr_state==FALL_R);
+    assign    digging  =(curr_state == DIG_L)||(curr_state== DIG_R);
 
     endmodule
