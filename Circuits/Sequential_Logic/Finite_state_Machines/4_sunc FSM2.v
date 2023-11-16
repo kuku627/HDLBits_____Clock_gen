@@ -1,6 +1,6 @@
 module top_module(
     input clk,
-    input areset,    // Synchronous reset to state B
+    input reset,    // Synchronous reset to state B
     input j,
     input k,
     output out
