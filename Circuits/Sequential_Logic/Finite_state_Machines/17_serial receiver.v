@@ -20,23 +20,23 @@ module top_module(
     end
     always @(posedge clk) begin
         if(reset)                          cnt<=    4'b0;
-        else if(curr_state==READ)             cnt<=cnt+1'b1;
+        else if((curr_state==READ)&(cnt<=4'd8))             cnt<=cnt+1'b1;
         else                               cnt<=    4'b0;
     end
 
     always @(*) begin
         case(curr_state)
-            IDLE :  if(in) next_state<=IDLE;
-                    else   next_state<= READ;
+            IDLE :  if(in) next_state=IDLE;
+                    else   next_state= READ;
 
             READ :  if(cnt_en) begin
-                        if(in) next_state<=DONE;         
-                        else   next_state<= ERR;
+                        if(in) next_state=DONE;         
+                        else   next_state= ERR;
                     end 
-                    else   next_state<=READ;
+                    else   next_state=READ;
 
-            ERR  : next_state<=      in? IDLE:  ERR;
-            DONE : next_state<=      in? IDLE: READ;
+            ERR  : next_state=      in? IDLE:  ERR;
+            DONE : next_state=      in? IDLE: READ;
 
 
         endcase

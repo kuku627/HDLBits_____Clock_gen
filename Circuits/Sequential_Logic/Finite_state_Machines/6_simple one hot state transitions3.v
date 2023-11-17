@@ -14,7 +14,7 @@ module top_module(
             B: next_state= in? B:C;
             C: next_state= in? D:A;
             D: next_state= in? B:C;
-            
+            // default: next_state = next_state; // 기본값 추가
         endcase
     end
 
