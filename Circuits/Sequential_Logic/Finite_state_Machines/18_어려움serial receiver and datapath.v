@@ -18,7 +18,7 @@ module top_module(
     wire cnt_en;
 
     assign cnt_en=(cnt==4'd8);
-    reg [3:0]temp;
+    reg [7:0]temp;
 
 
     always@ (posedge clk) begin
