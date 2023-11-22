@@ -18,7 +18,5 @@ module Full_adder(
     output cout,sum
 );
 
-assign cout=a&b|b&cin|a&cin;
-assign sum=a^b^cin;
-
+assign {count,sum}=a+b+cin;
 endmodule
