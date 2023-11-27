@@ -1,7 +1,7 @@
 
 `timescale 1ns / 1ps
 
-module matbi_watch_top(
+module watch_top(
     clk,
     reset,
 	i_run_en,
@@ -28,7 +28,7 @@ output reg 	[P_HOUR_BIT-1:0]	o_hour;
 wire w_one_sec_tick;
 
 // Gen one sec
-matbi_one_sec_gen 
+one_sec_gen 
 # (
 	.P_COUNT_BIT	(P_COUNT_BIT) 
 ) u_matbi_one_sec_gen(
