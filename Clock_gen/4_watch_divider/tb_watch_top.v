@@ -39,7 +39,7 @@ watch_top
 	.P_SEC_BIT	 	(P_SEC_BIT	),
 	.P_MIN_BIT	 	(P_MIN_BIT	),
 	.P_HOUR_BIT		(P_HOUR_BIT	)
-) watch_top_inst_divider(
+) watch_top_inst_divider(//
 	.clk 				(clk),
 	.reset 				(reset),
 	.i_run_en			(i_run_en),
