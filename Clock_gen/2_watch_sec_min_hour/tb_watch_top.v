@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 module tb_watch_top;
-localparam P_COUNT_BIT = 30; // (default) 30b, under 1GHz. 2^30 = 1073741824
-localparam P_SEC_BIT	 = 6; // 2^6 = 64
-localparam P_MIN_BIT	 = 6; // 2^6 = 64 
-localparam P_HOUR_BIT = 5; // 2^5 = 32 
+localparam P_COUNT_BIT = 30; // for under 1GHz. 2^30 = 1073741824
+localparam P_SEC_BIT	 = 6; // 2^6 = 64 for 60sec
+localparam P_MIN_BIT	 = 6; // 2^6 = 64 for 60min
+localparam P_HOUR_BIT = 5; // 2^5 = 32    for 24hour
 
 reg clk;
 reg reset;

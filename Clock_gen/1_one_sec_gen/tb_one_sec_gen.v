@@ -5,7 +5,7 @@ module tb_one_sec_gen;
     reg clk;
     reg reset;
     reg i_run_en;
-    reg [29:0] i_freq;// 이거 왜 30비트로?
+    reg [29:0] i_freq;
     wire o_one_sec_tick;
     reg [5:0] r_sec; 
     
@@ -14,7 +14,7 @@ module tb_one_sec_gen;
         .reset(reset),
         .i_run_en(i_run_en),
         .i_freq(i_freq),
-        .o_one_sec_tick(o_one_sec_tick)// 이거 왜 30비트로?
+        .o_one_sec_tick(o_one_sec_tick)
     );
 
 
@@ -42,11 +42,9 @@ module tb_one_sec_gen;
 
     initial begin
 
-    // $display("initialize value [%d]",$time);
         reset 		<= 0;
         clk     	<= 0;
         i_run_en 	<= 0;
-    // $display("Reset! [%d]", $time);
     # 100
         reset 		<= 1;
 
@@ -56,11 +54,10 @@ module tb_one_sec_gen;
 
         
         i_freq		<= 100; // 100Hz
-        // assert(i_freq <= 1000*1000*1000); // 10비트씩 3개
     # 10
-    // @(posege clk)
 
-    #100000 =//10의 5승 100
+
+    #100000 
 
         i_run_en    <= 0;
     $finish;
