@@ -31,7 +31,7 @@ wire w_one_sec_tick;
 one_sec_gen 
 # (
 	.P_COUNT_BIT	(P_COUNT_BIT) 
-) u_matbi_one_sec_gen(
+) one_sec_gen(
 	.clk 				(clk			),
 	.reset 				(reset			),
 	.i_run_en			(i_run_en		),
