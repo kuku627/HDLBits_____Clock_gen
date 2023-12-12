@@ -100,5 +100,3 @@ wire hour_tick = o_hour == 24-1;
 		end
 	end
 endmodule
-
-
